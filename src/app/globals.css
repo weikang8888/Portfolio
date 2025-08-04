@@ -1,0 +1,453 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    * {
+        @apply break-words text-[100%] border-none p-0 m-0
+    }
+
+    body {
+        @apply font-Kanit font-normal
+    }
+
+    img {
+        @apply max-w-full h-auto transition-all duration-[0.3s] ease-out
+    }
+
+    a, .button, .btn {
+        @apply transition-all duration-[0.3s] ease-out
+    }
+
+    a:focus, .button:focus, .btn:focus {
+        @apply decoration-[none] outline-none
+    }
+
+    a, a:focus, a:hover {
+        @apply decoration-[none]
+    }
+
+    .btn:focus, button:focus, input:focus, textarea, textarea:focus, .form-control:focus {
+        @apply decoration-[none] text-inherit outline-[0] shadow-none
+    }
+
+    button {
+        @apply cursor-pointer
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        @apply text-[#0e121d] font-Kanit mb-2 !leading-tight
+    }
+
+    h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+        @apply text-inherit
+    }
+
+    ul {
+        @apply m-0 p-0 list-none
+    }
+
+    li {
+        @apply mb-[10px]
+    }
+
+    p {
+        @apply font-Kanit text-lg font-normal text-[#838694] !leading-[30px] mb-4
+    }
+
+    hr {
+        @apply border-b-[1px] border-solid border-[#eceff8] my-[30px] mx-0 p-0
+    }
+
+    label {
+        @apply text-[#7e7e7e] cursor-pointer text-sm font-normal
+    }
+
+    *::-moz-selection {
+        @apply bg-[#d6b161] text-white shadow-none
+    }
+
+    ::-moz-selection {
+        @apply bg-[#444444] text-white shadow-none
+    }
+
+    ::selection {
+        @apply bg-[#106ad2] text-white shadow-none
+    }
+
+    *::-moz-placeholder {
+        @apply text-[#555555] text-sm opacity-[1]
+    }
+
+    *::placeholder {
+        @apply text-[#555555] text-sm opacity-[1]
+    }
+}
+
+@layer components {
+    .btn-1 {
+        @apply py-5 px-[30px] text-base text-white rounded-[10px] capitalize inline-block bg-[#ff4a54] shadow-[0px_0px_30px_0px_rgba(255,74,84,0.3)] transition-all duration-[0.3s]
+    }
+
+    .btn-1 i {
+        @apply ml-[3px]
+    }
+
+    .btn-1:hover {
+        @apply text-white bg-[#0c1239] shadow-[0px_0px_30px_0px_rgba(12,18,57,0.3)]
+    }
+
+    .btn-2 {
+        @apply inline-flex items-center justify-center w-[70px] h-[70px] rounded-[50%] relative transition-all duration-[0.3s] bg-[#ff4a54]
+    }
+
+    .btn-2 span svg {
+        @apply w-5 h-5 -rotate-45 fill-white
+    }
+
+    .btn-2:after {
+        @apply absolute content-[''] -top-[5px] -right-[5px] -bottom-[5px] -left-[5px] border-[1px] border-solid border-[#595959] rounded-[50%] transition-all duration-[0.3s] shadow-[0px_0px_30px_0px_rgba(255,74,84,0.3)]
+    }
+
+    .btn-2:hover {
+        @apply bg-[#ff4a54]
+    }
+
+    .btn-2:hover:after {
+        @apply content-[''] border-[1px] border-solid border-[#ff5100]
+    }
+
+    .btn-3 {
+        @apply font-normal py-[22px] px-10 bg-[#323232] text-white text-base inline-flex items-center rounded-[10px] shadow-[0px_0px_20px_0px_rgba(50,50,50,0.3)] transition-all duration-[0.3s]
+    }
+
+    .btn-3 span {
+        @apply ml-[5px]
+    }
+
+    .btn-3 span svg {
+        @apply fill-white w-5 h-5 transition-all duration-[0.3s]
+    }
+
+    .btn-3:hover {
+        @apply bg-[#ff4a54] text-white shadow-[0px_0px_30px_0px_rgba(255,74,84,0.3)]
+    }
+
+    .btn-3:hover svg {
+        @apply -rotate-45 fill-white
+    }
+
+    .btn-4 {
+        @apply text-base capitalize
+    }
+
+    .btn-4 i {
+        @apply text-[#00ce7d]
+    }
+}
+
+@layer utilities {
+    .my-stroke {
+        -webkit-text-stroke: 2px #0c1239;
+    }
+}
+
+@keyframes lds-spinner {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.sticky {
+    @apply left-0 m-auto fixed top-0 w-full z-[99] bg-white duration-[0.3s] shadow-[0px_0_15px_0px_rgba(0,0,0,0.14)] animate-[300ms_ease-in-out_0s_normal_none_1_running_fadeInDown] !rounded-none
+}
+
+ul.proloy-about-resume-wrape li:nth-child(odd) {
+    @apply bg-[#f7faff] border-[#f7faff]
+}
+
+ul.proloy-about-resume-wrape li:nth-child(odd) .about-resume-icon span svg {
+    @apply fill-white
+}
+
+ul.proloy-about-resume-wrape li:nth-child(odd) .about-resume-icon span {
+    @apply transition-all duration-[0.3s] bg-[#505050]
+}
+
+.proloy-about-progress-wrape .single-progress-wrape:nth-child(even) {
+    @apply xl:-ml-[30px] lg:-ml-[30px] md:ml-[30px] sm:ml-[30px]
+}
+
+.proloy-about-progress-wrape .single-progress-wrape:nth-child(1) h3, .proloy-about-progress-wrape .single-progress-wrape:nth-child(1) .proloy-progress-bar .CircularProgressbar-text {
+    @apply text-[#6864ed]
+}
+
+.proloy-about-progress-wrape .single-progress-wrape:nth-child(2) h3, .proloy-about-progress-wrape .single-progress-wrape:nth-child(2) .proloy-progress-bar .CircularProgressbar-text {
+    @apply text-[#33cc79]
+}
+
+.proloy-about-progress-wrape .single-progress-wrape:nth-child(3) h3, .proloy-about-progress-wrape .single-progress-wrape:nth-child(3) .proloy-progress-bar .CircularProgressbar-text {
+    @apply text-[#ff4a54]
+}
+
+.proloy-about-progress-wrape .single-progress-wrape:nth-child(1) .proloy-progress-bar .CircularProgressbar-text {
+    @apply !fill-[#6864ed]
+}
+
+.proloy-about-progress-wrape .single-progress-wrape:nth-child(2) .proloy-progress-bar .CircularProgressbar-text {
+    @apply !fill-[#33cc79]
+}
+
+.proloy-about-progress-wrape .single-progress-wrape:nth-child(3) .proloy-progress-bar .CircularProgressbar-text {
+    @apply !fill-[#ff4a54]
+}
+
+.proloy-about-progress-wrape .single-progress-wrape .proloy-progress-bar .CircularProgressbar-text {
+    @apply !text-[30px] leading-none text-center bg-white rounded-[50%] inset-1 font-Kanit
+}
+
+.proloy-about-progress-wrape .single-progress-wrape .proloy-progress-bar .CircularProgressbar-trail {
+    @apply !stroke-white ![stroke-linecap:round]
+}
+
+.proloy-about-progress-wrape .single-progress-wrape .proloy-progress-bar .CircularProgressbar-path {
+    @apply !transition-[stroke-dashoffset] !duration-[0.5s] !ease-[ease] !delay-[0s] ![stroke-linecap:round]
+}
+
+.proloy-about-progress-wrape .single-progress-wrape:nth-child(1) .proloy-progress-bar .CircularProgressbar-path {
+    @apply !stroke-[#6864ed]
+}
+
+.proloy-about-progress-wrape .single-progress-wrape:nth-child(2) .proloy-progress-bar .CircularProgressbar-path {
+    @apply !stroke-[#33cc79]
+}
+
+.proloy-about-progress-wrape .single-progress-wrape:nth-child(3) .proloy-progress-bar .CircularProgressbar-path {
+    @apply !stroke-[#ff4a54]
+}
+
+.single-blog-img img {
+    @apply transition-all duration-[0.3s] rounded-[15px]
+}
+
+.proloy-all-servicess-wrape .swiper-slide-active .services-hvr img.shi1, .single-services-wrape:hover .services-hvr img.shi1 {
+    @apply left-0 top-0 opacity-[1] visible
+}
+
+.proloy-all-servicess-wrape .swiper-slide-active .services-hvr img.shi2, .single-services-wrape:hover .services-hvr img.shi2 {
+    @apply right-0 bottom-0 opacity-[1] visible
+}
+
+.proloy-all-servicess-wrape .swiper-slide-active .services-icon span, .single-services-wrape:hover .services-icon span {
+    @apply bg-[#ff4a54] border-[#ff4a54]
+}
+
+.proloy-all-servicess-wrape .swiper-slide-active .services-icon span:after, .single-services-wrape:hover .services-icon span:after {
+    @apply bg-[#ff4d55b3] border-[#ff4d55b3]
+}
+
+.proloy-all-servicess-wrape .swiper-slide-active .single-services-wrape:after, .single-services-wrape:hover:after {
+    @apply opacity-[1] visible scale-[1]
+}
+
+.proloy-all-servicess-wrape .swiper-slide-active .services-btn, .single-services-wrape:hover .services-btn {
+    @apply visible opacity-[1] -bottom-[120px]
+}
+
+.proloy-all-servicess-wrape .swiper-slide-active .services-icon span svg, .single-services-wrape:hover .services-icon span svg {
+    @apply fill-white
+}
+
+.proloy-all-servicess-wrape .swiper-slide-active .single-services-wrape {
+    @apply mt-[22px]
+}
+
+.proloy-all-team-member-wrape .swiper-slide {
+    @apply mt-5
+}
+
+.proloy-all-team-member-wrape .swiper-slide:nth-child(2n) {
+    @apply -mt-5
+}
+
+.price-item-list li:last-child {
+    @apply mb-0
+}
+
+.single-price-area.active .price-icon, .single-price-area:hover .price-icon {
+    @apply rounded-tr-[69px] rounded-bl-[69px]
+}
+
+.single-price-area.active .price-btn a, .single-price-area:hover .price-btn a {
+    @apply bg-[#ff4a54] shadow-[0px_0px_30px_0px_rgba(255,74,84,0.3)]
+}
+
+.single-price-area.active, .single-price-area:hover {
+    @apply rounded-tr-[207px]
+}
+
+.single-price-area.active .price-bg, .single-price-area:hover .price-bg {
+    @apply bottom-0 right-0 opacity-[1] visible
+}
+
+.single-price-area.active .price-icon, .single-price-area:hover .price-icon {
+    @apply bg-[#ff4a54]
+}
+
+.single-price-area.active .price-header h2 span.price, .single-price-area:hover .price-header h2 span.price {
+    @apply text-[#ff4a54]
+}
+
+@keyframes btnIconRipple {
+    0% {
+        border-width: 4px;
+        transform: scale(1);
+    }
+
+    80% {
+        border-width: 1px;
+        transform: scale(1.35);
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.proloy-modal-wrape>div {
+    @apply xl:max-w-[80rem] lg:max-w-[800px] w-full;
+}
+
+.proloy-all-blog-list-wrape .swiper-slide.swiper-slide-active .blog-date-title-wrape,
+.proloy-single-blog-wrape:hover .blog-date-title-wrape {
+    @apply bottom-5
+}
+
+.proloy-all-blog-list-wrape .swiper-slide.swiper-slide-active .single-blog-img:before, .proloy-single-blog-wrape:hover .single-blog-img:before, .proloy-single-blog-wrape:hover .single-blog-img img {
+    @apply rounded-br-none rounded-bl-none
+}
+
+.proloy-all-blog-list-wrape .swiper-slide.swiper-slide-active .single-blog-img:before, .proloy-single-blog-wrape:hover .single-blog-img:before {
+    @apply bg-gradient-to-b from-[rgba(2,0,36,0)0%] to-[rgba(255,74,84,1)]
+}
+
+.proloy-all-blog-list-wrape .swiper-slide.swiper-slide-active .blog-readmore-btn .btn-3, .proloy-single-blog-wrape:hover .blog-readmore-btn .btn-3 {
+    @apply text-white bg-[#ff4a54] shadow-[0px_0px_30px_0px_rgba(255,74,84,0.3)]
+}
+
+ul.contant-info-content-wrape li:nth-child(odd) {
+    @apply bg-[#f7faff] border-[#f7faff]
+}
+
+ul.contant-info-content-wrape li:nth-child(odd) .contant-info-content-icon span svg {
+    @apply fill-white
+}
+
+ul.contant-info-content-wrape li:nth-child(odd) .contant-info-content-icon span {
+    @apply bg-[#ff4a54]
+}
+
+.proloy-breadcrumb-content .breadcrumb .breadcrumb-item, .proloy-breadcrumb-content .breadcrumb-item.active a, .proloy-breadcrumb-content .breadcrumb .breadcrumb-item.active {
+    @apply text-white capitalize
+}
+
+.proloy-breadcrumb-content .breadcrumb .breadcrumb-item a {
+    @apply capitalize text-[#ff5100]
+}
+
+.proloy-breadcrumb-content .breadcrumb-item+.breadcrumb-item::before {
+    @apply text-white text-3xl !leading-8 content-['>'] mx-2
+}
+
+.progress-wrap.active-progress {
+    @apply opacity-[1] visible translate-y-0
+}
+
+ul.portfolio-menu-wrape li:hover, ul.portfolio-menu-wrape li.active {
+    @apply text-[#ff4a54]
+}
+
+.main-menu-area {
+    @apply inline-block relative
+}
+
+.flowbite-navbar-collapse.hidden {
+    @apply md:!hidden
+}
+
+.flowbite-navbar-collapse ul {
+    @apply xl:inline-block xl:[position:inherit] xl:w-full xl:bg-transparent xl:p-0 xl:text-center md:flex-col absolute m-[0_auto] left-0 top-full text-left w-[90%] inline-flex mx-auto inset-x-0 bg-black
+}
+
+.flowbite-navbar-collapse ul>li {
+    @apply xl:inline-block xl:relative !m-0
+}
+
+.flowbite-navbar-collapse ul>li.active, .flowbite-navbar-collapse ul>li {
+    @apply xl:after:absolute xl:after:content-[url('../../public/img/common/arrow.png')] xl:after:left-0 xl:after:right-0 xl:after:-bottom-[12px] xl:after:invisible xl:after:opacity-0 xl:after:transition-all xl:after:duration-[0.3s]
+}
+
+.flowbite-navbar-collapse ul>li.active::after, .flowbite-navbar-collapse ul>li:hover::after {
+    @apply xl:w-full xl:opacity-[1] xl:visible xl:-bottom-[7px]
+}
+
+.flowbite-navbar-collapse ul>li>a {
+    @apply xl:border-0 text-[#838694] font-Kanit capitalize block text-base font-medium xl:py-10 xl:px-6 transition-[all_0.3s_ease_0s] !leading-tight border-t-[rgba(255,255,255,0.5)] border-t border-solid p-[10px_30px]
+}
+
+.flowbite-navbar-collapse ul>li:hover>a, .flowbite-navbar-collapse ul>li.active>a {
+    @apply text-[#0c1239] bg-[#f9fafb]
+}
+
+/* sub menu */
+.flowbite-navbar-collapse ul>li .sub-menu {
+    @apply left-0 opacity-0 absolute invisible bg-white border-t-[3px] border-solid border-t-[#ff4a54] shadow-[0_6px_12px_rgba(0,0,0,0.176)] top-full transition-[all_0.4s_ease-out] w-[220px] z-[9] origin-top scale-y-0
+}
+
+.flowbite-navbar-collapse ul>li:hover .sub-menu {
+    @apply opacity-[1] visible scale-y-[1]
+}
+
+.flowbite-navbar-collapse ul>li .sub-menu li {
+    @apply block relative m-0
+}
+
+.flowbite-navbar-collapse ul>li .sub-menu li a {
+    @apply m-0 capitalize block font-Kanit text-[#666666] text-[15px] font-semibold py-[13px] px-5
+}
+
+.flowbite-navbar-collapse ul>li:hover>.sub-menu li>a:hover {
+    @apply text-white bg-[#090909]
+}
+
+.flowbite-navbar-collapse ul>li>.sub-menu>li>.sub-menu {
+    @apply bg-white opacity-0 absolute shadow-[0_6px_12px_rgba(0,0,0,0.176)] transition-[all_0.3s_ease_0s] invisible w-[220px] z-[9] border-t-[3px] border-solid border-t-[#ff5959] left-full top-[120%]
+}
+
+.flowbite-navbar-collapse ul>li>.sub-menu>li:hover .sub-menu {
+    @apply opacity-[1] visible !top-0
+}
+
+.flowbite-navbar-collapse ul {
+    @apply xl:mt-0 xl:flex-row xl:space-x-8 xl:text-sm xl:font-medium
+}
+
+.proloy-main-manu-content nav {
+    @apply p-0 bg-transparent;
+}
+
+.proloy-main-manu-content .container {
+    @apply !w-full !max-w-full xl:block
+}
+
+.header-logo {
+    @apply float-left;
+}
+
+.proloy-toggle-btn {
+    @apply border text-[#444] text-[1px] font-bold no-underline mx-0 my-[30px] px-[9px] py-2 border-solid border-[#444];
+}
