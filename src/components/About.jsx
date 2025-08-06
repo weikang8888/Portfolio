@@ -12,7 +12,7 @@ const AboutData = {
   title: "about me",
   title2: "I Love Turning Ideas Into Scalable Web Applications",
   btntext: "download cv",
-  btnurl: "#about",
+  btnurl: "/img/common/NgWeiKang_Resume.pdf",
   brief:
     "I'm a passionate Frontend / Full Stack Developer with a strong focus on building responsive, user-friendly web applications. With experience in modern JavaScript frameworks like React and backend technologies such as Node.js, I enjoy turning complex problems into intuitive digital experiences. I continuously explore new tools and best practices to deliver clean, maintainable code and impactful products.",
   commonimg: commonimg,
@@ -61,26 +61,26 @@ const AboutData = {
   ],
   CounterList: [
     {
-      title: "React JS / TypeScript",
+      title: "Frontend Development",
       brief:
-        "Strong proficiency in building dynamic UIs with React, managing state effectively, and using TypeScript for type safety.",
-      count: "90",
+        "Expert in HTML5, CSS3, JavaScript (ES6+), TypeScript, React, Next.js, Tailwind CSS, and responsive design for modern web applications.",
+      count: "92",
       counticon: "%",
       delay: "100",
     },
     {
-      title: "Node.js",
+      title: "Backend Development",
       brief:
-        "Experience in building RESTful APIs, server-side logic, and working with Express and MongoDB.",
-      count: "60",
+        "Experience in Node.js, Express, RESTful APIs, MongoDB, database design, server-side logic, and authentication systems.",
+      count: "68",
       counticon: "%",
       delay: "200",
     },
     {
-      title: "Others",
+      title: "Development Tools",
       brief:
-        "Knowledge of tools and technologies like Tailwind CSS, Docker, Git, and CI/CD pipelines.",
-      count: "90",
+        "Proficient with Git, Docker, VS Code, npm/yarn, Webpack, CI/CD pipelines, and modern development workflows for efficient coding.",
+      count: "85",
       counticon: "%",
       delay: "300",
     },
@@ -119,9 +119,13 @@ const About = () => {
                 </h4>
               </div>
               <div className="proloy-about-btn btn-social flex items-center">
-                <Link href={AboutData.btnurl} className="btn-1">
+                <a 
+                  href={AboutData.btnurl} 
+                  download="NgWeiKang_Resume.pdf"
+                  className="btn-1"
+                >
                   {AboutData.btntext} <i className="fa fa-download"></i>
-                </Link>
+                </a>
                 <ul className="social-wrape">
                   {AboutData.SocialList.map((item, i) => (
                     <li

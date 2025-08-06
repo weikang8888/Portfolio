@@ -127,7 +127,7 @@ const Home = () => {
                 </div>
               </div>
               <div className="xl:col-start-7 xl:col-span-5 lg:col-span-10 md:col-span-12 sm:col-span-12">
-                <ul className="hero-personal-info-wrape flex items-center absolute bottom-10 ">
+                <ul className="hero-personal-info-wrape items-center absolute bottom-10 ">
                   {HomeData.InfoList.map((item, i) => (
                     <Tilt className="inline-block" key={i}>
                       <li

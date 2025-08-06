@@ -2,13 +2,11 @@ import React from "react";
 import Tilt from "react-parallax-tilt";
 import Link from "next/link";
 import Image from "next/image";
-import bgimg1 from "../../public/img/resume/1.jpg";
 import bgimg2 from "../../public/img/resume/2.jpg";
 
 const EducationData = {
   title: "Experience",
   title2: "Education",
-  bgimg1: bgimg1,
   bgimg2: bgimg2,
   ExprienceList: [
     {
