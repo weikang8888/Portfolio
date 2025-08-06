@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 const ContactData = {
   btntext: "submit now",
@@ -27,6 +27,42 @@ const ContactData = {
   ],
 };
 const Contact = () => {
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+  const [status, setStatus] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+    try {
+      const res = await fetch("/api/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      const data = await res.json();
+      if (res.ok) {
+        setStatus("Message sent successfully!");
+        setForm({ name: "", email: "", subject: "", message: "" });
+      } else {
+        setStatus(data.message || "Error sending message");
+      }
+    } catch (err) {
+      setStatus("Error sending message");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <>
       <div
@@ -58,20 +94,22 @@ const Contact = () => {
               <ul className="contant-info-content-wrape mt-[30px]">
                 {ContactData.ContactList.map((item, i) => (
                   <li
-                    className="flex items-center magic-hover magic-hover__square p-[15px] m-0 border-[1px] border-solid border-[#e1e1e1] transition-all duration-[0.3s] sm:!block"
+                    className="flex items-center magic-hover magic-hover__square p-[15px] m-0 border-[1px] border-solid border-[#e1e1e1] transition-all duration-[0.3s] gap-3"
                     key={i}
                   >
-                    <div className="contant-info-content-icon w-[15%] ">
+                    <div className="contant-info-content-icon">
                       <span
                         className="w-[70px] h-[70px] inline-flex items-center bg-[#f7faff] justify-center"
                         dangerouslySetInnerHTML={{ __html: item.icon }}
                       ></span>
                     </div>
-                    <div className="contant-info-content-title text-[#838694] w-[25%] ml-[12px] text-[22px] capitalize font-normal">
-                      {item.title}
-                    </div>
-                    <div className="contant-info-content text-[22px] capitalize font-normal ">
-                      {item.info}
+                    <div className="flex items-center w-full">
+                      <div className="about-resume-title text-xl capitalize sm:w-[50%] w-[30%] flex-shrink-0">
+                        {item.title}
+                      </div>
+                      <div className="about-resume-info text-xl flex-1 min-w-0 break-all">
+                        {item.info}
+                      </div>
                     </div>
                   </li>
                 ))}
@@ -86,8 +124,7 @@ const Contact = () => {
                 <form
                   className="proloy-contact-form"
                   id="ajax-contact"
-                  action="./mail.php"
-                  method="post"
+                  onSubmit={handleSubmit}
                 >
                   <div className="container">
                     <div className="grid grid-cols-12 gap-6">
@@ -97,6 +134,9 @@ const Contact = () => {
                           type="text"
                           name="name"
                           placeholder="Name *"
+                          value={form.name}
+                          onChange={handleChange}
+                          required
                         />
                       </div>
                       <div className="xl:col-span-6 lg:col-span-6 md:col-span-6 sm:col-span-12">
@@ -105,6 +145,9 @@ const Contact = () => {
                           type="email"
                           name="email"
                           placeholder="E-mail *"
+                          value={form.email}
+                          onChange={handleChange}
+                          required
                         />
                       </div>
                       <div className="xl:col-span-12 lg:col-span-12 md:col-span-12 sm:col-span-12">
@@ -113,6 +156,8 @@ const Contact = () => {
                           type="text"
                           name="subject"
                           placeholder="Subject"
+                          value={form.subject}
+                          onChange={handleChange}
                         />
                       </div>
                       <div className="xl:col-span-12 lg:col-span-12 md:col-span-12 sm:col-span-12">
@@ -122,25 +167,69 @@ const Contact = () => {
                           cols="30"
                           rows="8"
                           placeholder="Message"
+                          value={form.message}
+                          onChange={handleChange}
+                          required
                         ></textarea>
-                        <button className="btn-3 uppercase">
-                          submit now{" "}
-                          <span>
-                            <svg
-                              data-name="Layer 1"
-                              xmlns="http://www.w3.org/2000/svg"
-                              viewBox="0 0 128 95.91"
-                            >
-                              <path
-                                d="M259.88,468.09l-52,45.93-5.1-5.52,43.33-38.41H131.88v-8H246.09l-43.25-38.36,5-5.62,52.06,46Z"
-                                transform="translate(-131.88 -418.11)"
-                              ></path>
-                            </svg>
-                          </span>
+                        <button
+                          className="btn-3 uppercase"
+                          type="submit"
+                          disabled={isLoading}
+                        >
+                          {isLoading ? (
+                            <>
+                              <span className="inline-flex items-center">
+                                <svg
+                                  className="animate-spin -ml-1 mr-2 h-4 w-4 text-white"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  fill="none"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <circle
+                                    className="opacity-25"
+                                    cx="12"
+                                    cy="12"
+                                    r="10"
+                                    stroke="currentColor"
+                                    strokeWidth="4"
+                                  ></circle>
+                                  <path
+                                    className="opacity-75"
+                                    fill="currentColor"
+                                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                                  ></path>
+                                </svg>
+                                Sending...
+                              </span>
+                            </>
+                          ) : (
+                            <>
+                              submit now{" "}
+                              <span>
+                                <svg
+                                  data-name="Layer 1"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  viewBox="0 0 128 95.91"
+                                >
+                                  <path
+                                    d="M259.88,468.09l-52,45.93-5.1-5.52,43.33-38.41H131.88v-8H246.09l-43.25-38.36,5-5.62,52.06,46Z"
+                                    transform="translate(-131.88 -418.11)"
+                                  ></path>
+                                </svg>
+                              </span>
+                            </>
+                          )}
                         </button>
                       </div>
                     </div>
-                    <p className="form-message float-left mt-[15px] text-[15px]"></p>
+                    <p className={`form-message float-left mt-[15px] text-[15px] font-medium ${
+                      status.includes('successfully') ? 'text-green-600' :
+                      status.includes('Error') || status.includes('error') ? 'text-red-600' :
+                      status.includes('Sending') ? 'text-blue-600' :
+                      'text-gray-600'
+                    }`}>
+                      {status}
+                    </p>
                   </div>
                 </form>
               </div>

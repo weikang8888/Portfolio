@@ -154,7 +154,11 @@ const Services = () => {
                           />
                         </div>
                         <div className="services-btn absolute left-0 right-0 transition-all duration-[0.3s] opacity-0 invisible -bottom-20 ">
-                          <Link href={item.btnurl} className="btn-2 btn-tilt">
+                          <Link 
+                            href={item.btnurl} 
+                            className="btn-2 btn-tilt"
+                            onClick={(e) => e.preventDefault()}
+                          >
                             <span
                               dangerouslySetInnerHTML={{ __html: item.btnicon }}
                             ></span>

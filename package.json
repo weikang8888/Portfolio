@@ -11,7 +11,9 @@
   "dependencies": {
     "aos": "^3.0.0-beta.6",
     "flowbite-react": "^0.9.0",
+    "googleapis": "^155.0.0",
     "next": "14.2.3",
+    "nodemailer": "^7.0.5",
     "react": "^18",
     "react-18-image-lightbox": "^5.1.4",
     "react-animated-cursor": "^2.11.2",

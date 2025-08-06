@@ -63,11 +63,12 @@ const Education = () => {
           />
         </div>
         <div className="proloy-work-education-resume-bg-img1 absolute left-0 bottom-0 bg-cover bg-no-repeat bg-center h-[650px] -z-[3] top-[100px] xl:w-[41%] lg:w-[41%] lg:block md:hidden sm:hidden ">
-          <Image
+          {/* <Image
             className=" w-full h-full "
             src={EducationData.bgimg1}
             alt="work-img"
-          />
+          /> */}
+          <div className="w-full h-full bg-red-500"></div>
         </div>
         <div className="container">
           <div className="grid grid-cols-12 gap-6">

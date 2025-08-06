@@ -24,14 +24,6 @@ const MenuData = {
       link: "#portfolio",
     },
     {
-      title: "Team",
-      link: "#team",
-    },
-    {
-      title: "Blog",
-      link: "#blog",
-    },
-    {
       title: "Contact",
       link: "#contact",
     },
@@ -40,15 +32,11 @@ const MenuData = {
   sociallist: [
     {
       icon: "fa fa-facebook",
-      link: "#",
+      link: "https://www.facebook.com/ng.weikang.9",
     },
     {
-      icon: "fa fa-linkedin",
-      link: "#",
-    },
-    {
-      icon: "fa fa-twitter",
-      link: "#",
+      icon: "fa fa-instagram",
+      link: "https://www.instagram.com/weikang323/?hl=en#",
     },
   ],
 };
@@ -111,14 +99,14 @@ const Header = () => {
                     </Link>
                 </div>
                 <div className="proloy-right-wrape xl:block flex order-2">
-                  <div className="proloy-language-wrape xl:float-right my-[38px] mx-0 xl:pr-0 lg:pr-[70] md:pr-[70] sm:pr-[30] order-2">
+                  {/* <div className="proloy-language-wrape xl:float-right my-[38px] mx-0 xl:pr-0 lg:pr-[70] md:pr-[70] sm:pr-[30] order-2">
                     <select className="cursor-pointer capitalize p-0">
                       <option value="1" selected="">
                         eng
                       </option>
                       <option value="2">ger</option>
                     </select>
-                  </div>
+                  </div> */}
                   <ul className="header-top-social-wrape xl:float-right my-[25px] mx-0 sm:hidden order-1 ">
                     {MenuData.sociallist.map((item, i) => (
                       <li

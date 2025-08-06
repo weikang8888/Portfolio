@@ -15,7 +15,7 @@ const HomeData = {
   brief:
     "Passionate developer with 4 years of experience building responsive, user-friendly web applications using React and TypeScript. Currently expanding into full-stack development with Node.js and Python, aiming to build end-to-end scalable solutions.",
   btntext: "about me",
-  btnurl: "#",
+  btnurl: "#about",
   btntext2: "Available For Freelancer",
   btnurl2: "#",
   img1: img1,
@@ -64,7 +64,11 @@ const Home = () => {
             translateX={["-30px", "30px"]}
             className="hero-style-img-3 absolute -z-[1] bottom-0 right-[10%] sm:hidden"
           >
-            <Image src={HomeData.img3} alt="hero-style-img-3" />
+            <Image
+              src={HomeData.img3}
+              alt="hero-style-img-3"
+              className="w-[600px]"
+            />
           </Parallax>
           <Parallax
             translateY={["-50px", "0px"]}

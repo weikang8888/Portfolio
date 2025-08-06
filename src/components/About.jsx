@@ -12,7 +12,7 @@ const AboutData = {
   title: "about me",
   title2: "I Love Turning Ideas Into Scalable Web Applications",
   btntext: "download cv",
-  btnurl: "#",
+  btnurl: "#about",
   brief:
     "I'm a passionate Frontend / Full Stack Developer with a strong focus on building responsive, user-friendly web applications. With experience in modern JavaScript frameworks like React and backend technologies such as Node.js, I enjoy turning complex problems into intuitive digital experiences. I continuously explore new tools and best practices to deliver clean, maintainable code and impactful products.",
   commonimg: commonimg,
@@ -20,15 +20,11 @@ const AboutData = {
   SocialList: [
     {
       title: "fb",
-      link: "#",
+      link: "https://www.facebook.com/ng.weikang.9",
     },
     {
-      title: "tw",
-      link: "#",
-    },
-    {
-      title: "li",
-      link: "#",
+      title: "ig",
+      link: "https://www.instagram.com/weikang323/?hl=en#",
     },
   ],
   ResumeList: [
@@ -154,7 +150,11 @@ const About = () => {
               >
                 <p>{AboutData.brief}</p>
                 <div className="about-sign mt-[10px]">
-                  <Image src={AboutData.img1} alt="about-sign" className="h-24"/>
+                  <Image
+                    src={AboutData.img1}
+                    alt="about-sign"
+                    className="h-24"
+                  />
                 </div>
               </div>
             </div>
@@ -168,20 +168,22 @@ const About = () => {
               >
                 {AboutData.ResumeList.map((item, i) => (
                   <li
-                    className="magic-hover magic-hover__square flex items-center m-0 border-[1px] border-solid border-[#e1e1e1] transition-all duration-[0.3s] p-[15px] sm:!block hover:ml-[10px] group"
+                    className="magic-hover magic-hover__square flex items-center m-0 border-[1px] border-solid border-[#e1e1e1] transition-all duration-[0.3s] p-[15px] hover:ml-[10px] group gap-3"
                     key={i}
                   >
-                    <div className="about-resume-icon w-[15%] ">
+                    <div className="about-resume-icon">
                       <span
                         className=" w-[70px] transition-all duration-[0.3s] h-[70px] inline-flex items-center bg-[#f7faff] justify-center group-hover:!bg-[#ff4a54] group-hover:!rounded-[10px]"
                         dangerouslySetInnerHTML={{ __html: item.icon }}
                       ></span>
                     </div>
-                    <div className="about-resume-title text-2xl capitalize  w-[30%] ">
-                      {item.title}
-                    </div>
-                    <div className="about-resume-info text-2xl capitalize ">
-                      {item.info}
+                    <div className="flex items-center w-full">
+                      <div className="about-resume-title text-xl capitalize sm:w-[50%] w-[30%] flex-shrink-0">
+                        {item.title}
+                      </div>
+                      <div className="about-resume-info text-xl flex-1 min-w-0 break-all">
+                        {item.info}
+                      </div>
                     </div>
                   </li>
                 ))}
